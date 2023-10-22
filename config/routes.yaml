@@ -3,3 +3,10 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+commit_message_parse:
+    path: /commit/parse
+    methods: [GET, POST]
+    controller: App\Controller\CommitController::parseCommit
+
+
