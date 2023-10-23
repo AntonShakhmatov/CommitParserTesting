@@ -17,7 +17,14 @@ This is a PHP library that provides a simple interface for parsing git commit me
 use CommitMessage\CommitParser;
 
 $parser = new CommitParser();
-$message = 'feat: add new feature';
+$message = '[add] [feature] @core #123456 Integrovat Premier: export objednávek
+        * Export objednávek cronem co hodinu.
+        * Export probíhá v dávkách.
+        * ...
+        BC: Refaktorovaný BaseImporter.
+        BC: ...
+        Feature: Nový logger.
+        TODO: Refactoring autoemail modulu';
 
 $parsedMessage = $parse->parse($message);
 
