@@ -27,5 +27,12 @@ class CommitParserTest extends TestCase
         $this->assertEquals(['* Export objednávek cronem co hodinu.', '* Export probíhá v dávkách.', '* ...'], $parsedMessage->getDetails());
         $this->assertEquals(['BC: Refaktorovaný BaseImporter.', 'BC: ...'], $parsedMessage->getBcBreaks());
         $this->assertEquals(['TODO: Refactoring autoemail modulu'], $parsedMessage->getTodos());
+
+        echo $parsedMessage->getTitle();
+        echo $parsedMessage->getTaskId();
+        var_dump($parsedMessage->getTags());
+        var_dump($parsedMessage->getDetails());
+        var_dump($parsedMessage->getBcBreaks());
+        var_dump($parsedMessage->getTodos());
     }
 }

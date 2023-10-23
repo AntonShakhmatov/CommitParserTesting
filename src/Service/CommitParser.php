@@ -11,10 +11,21 @@ class CommitParser implements CommitMessageParser
     {
         $lines = explode("\n", $message);
         $titleAndTags = explode(' ', $lines[0]);
+        $titleAndTags = array_filter($titleAndTags, 'trim');
+        $titleAndTags = array_values($titleAndTags);
 
-        $title_array = array_slice($titleAndTags, 4);
+        $tags = [];
+        foreach ($titleAndTags as $tag) {
+            if (strpos($tag, '[') === 0) {
+                $tags[] = $tag;
+            }
+        }
+
+        $result = count($tags) + 2;
+        $number = (int) $result;
+        $title_array = array_slice($titleAndTags, $number);
         $title = implode(" ", $title_array);
-        $tags = array_slice($titleAndTags, 0, 2);
+
         $taskId = null;
         foreach ($titleAndTags as $tag) {
             if (strpos($tag, '#') !== false) {
