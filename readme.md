@@ -4,7 +4,7 @@ This is a PHP library that provides a simple interface for parsing git commit me
 
 ## Requirements
 
-- PHP 7.0 or higher
+- PHP 8.2
 
 ## Installation
 
